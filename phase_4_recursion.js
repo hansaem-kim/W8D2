@@ -21,6 +21,39 @@ function sumRec(arr) {
     return sumRec(arr.slice(1)) + arr[0]; 
 }
 
-console.log(sumRec([1,2,3,4,5,6]))
+// console.log(sumRec([1,2,3,4,5,6]))
 
-function expo
+function exponent(base, exp) {
+    if (exp === 0) {
+        return 1;
+    }
+
+    return base * exponent(base, exp-1);
+}
+
+// console.log(exponent(3,2));
+
+function fibonacci(n) {
+    if (n===1) {
+        return [1]
+    }
+
+    if (n===2) {
+        return [1,1]
+    }
+
+    let fibo = fibonacci(n-1)
+
+    fibo.push(fibo[n-2] + fibo[n-3])
+
+    return fibo
+}
+
+// console.log(fibonacci(6));
+
+function deepDup(arr) {
+    let newArr = [];
+    arr.forEach(el => Array.isArray(el)? newArr.push(deepDup(el)) : newArr.push(el));
+    return newArr;
+}
+
